@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Repeater</title>
+  <style>
+    body {
+      background-color: #555;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    #output {
+      font-size: 1.4rem;
+      margin-top: 20px;
+      white-space: pre-wrap;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="output"></div>
+
+  <script>
+    window.onload = function () {
+      let times = prompt("How many times do you want to repeat the text?");
+      if (times !== null && !isNaN(times) && parseInt(times) > 0) {
+        times = parseInt(times);
+        let text = prompt("What text do you want to repeat?");
+        if (text !== null) {
+          let result = "";
+          for (let i = 0; i < times; i++) {
+            result += text + "\n";
+          }
+          document.getElementById("output").textContent = result;
+        } else {
+          document.getElementById("output").textContent = "No text provided.";
+        }
+      } else {
+        document.getElementById("output").textContent = "Invalid number entered.";
+      }
+    };
+  </script>
+</body>
+</html>
