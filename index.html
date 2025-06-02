@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Checker</title>
+  <style>
+    body {
+      background-color: #555;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="result" id="result"></div>
+
+  <script>
+    window.onload = function () {
+      let input = prompt("Enter a number:");
+      let resultElement = document.getElementById("result");
+
+      if (input !== null) {
+        let number = parseFloat(input);
+        if (isNaN(number)) {
+          resultElement.textContent = "That's not a valid number.";
+        } else if (number > 0) {
+          resultElement.textContent = "The number is positive";
+        } else if (number < 0) {
+          resultElement.textContent = "The number is negative";
+        } else {
+          resultElement.textContent = "The numeber is zero";
+        }
+      } else {
+        resultElement.textContent = "Input cancelled.";
+      }
+    };
+  </script>
+</body>
+</html>
