@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grade Checker</title>
+  <style>
+    body {
+      background-color: #555;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .grade {
+      margin-top: 20px;
+      font-size: 1.6rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="grade" id="grade"></div>
+
+  <script>
+    window.onload = function () {
+      let input = prompt("Enter your marks (0–100):");
+      let gradeElement = document.getElementById("grade");
+
+      if (input !== null) {
+        let marks = parseFloat(input);
+
+        if (isNaN(marks) || marks < 0 || marks > 100) {
+          gradeElement.textContent = "Invalid input. Please enter a number between 0 and 100.";
+        } else if (marks >= 90) {
+          gradeElement.textContent = "Your grade is: A+";
+        } else if (marks >= 80) {
+          gradeElement.textContent = "Your grade is: A";
+        } else if (marks >= 70) {
+          gradeElement.textContent = "Your grade is: B";
+        } else if (marks >= 60) {
+          gradeElement.textContent = "Your grade is: C";
+        } else if (marks >= 50) {
+          gradeElement.textContent = "Your grade is: D";
+        } else {
+          gradeElement.textContent = "Your grade is: F";
+        }
+      } else {
+        gradeElement.textContent = "Input cancelled.";
+      }
+    };
+  </script>
+</body>
+</html>
